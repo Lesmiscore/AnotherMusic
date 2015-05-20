@@ -60,6 +60,8 @@ import java.lang.ref.WeakReference;
 import java.util.Random;
 import java.util.Vector;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 /**
  * Provides "background" audio playback capabilities, allowing the
  * user to switch between activities without stopping playback.

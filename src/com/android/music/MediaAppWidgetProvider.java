@@ -27,6 +27,8 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 /**
  * Simple widget to show currently playing album art along
  * with play/pause and next track buttons.  

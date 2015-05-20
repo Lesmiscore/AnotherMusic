@@ -50,6 +50,8 @@ import java.text.Collator;
 import java.util.Formatter;
 import java.util.Locale;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 /**
  * Activity allowing the user to select a music track on the device, and
  * return it to its caller.  The music picker user interface is fairly

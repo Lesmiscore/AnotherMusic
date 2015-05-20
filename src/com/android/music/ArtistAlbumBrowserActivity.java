@@ -63,6 +63,7 @@ import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
 
 import java.text.Collator;
 
+import com.nao20010128nao.MusicAppAnother.R;
 
 public class ArtistAlbumBrowserActivity extends ExpandableListActivity
         implements View.OnCreateContextMenuListener, MusicUtils.Defs, ServiceConnection

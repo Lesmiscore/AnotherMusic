@@ -38,6 +38,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class TouchInterceptor extends ListView {
     
     private ImageView mDragView;

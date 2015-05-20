@@ -24,6 +24,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class WeekSelector extends Activity
 {
     VerticalTextSpinner mWeeks;

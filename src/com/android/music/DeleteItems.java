@@ -25,6 +25,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class DeleteItems extends Activity
 {
     private TextView mPrompt;

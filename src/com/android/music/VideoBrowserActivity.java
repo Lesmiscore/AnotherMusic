@@ -30,6 +30,8 @@ import android.widget.SimpleCursorAdapter;
 
 import java.lang.Integer;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class VideoBrowserActivity extends ListActivity implements MusicUtils.Defs
 {
     public VideoBrowserActivity()

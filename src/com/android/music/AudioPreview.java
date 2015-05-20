@@ -50,6 +50,8 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+
+import com.nao20010128nao.MusicAppAnother.R;
 /**
  * Dialog that comes up in response to various music-related VIEW intents.
  */

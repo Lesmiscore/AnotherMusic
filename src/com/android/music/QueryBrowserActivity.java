@@ -54,6 +54,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class QueryBrowserActivity extends ListActivity
 implements MusicUtils.Defs, ServiceConnection
 {

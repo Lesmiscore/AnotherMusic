@@ -27,6 +27,8 @@ import android.provider.MediaStore;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class ScanningProgress extends Activity
 {
     private final static int CHECK = 0;

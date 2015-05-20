@@ -29,6 +29,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.nao20010128nao.MusicAppAnother.R;
 
 public class VerticalTextSpinner extends View {
 

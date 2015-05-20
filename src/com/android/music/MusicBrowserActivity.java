@@ -26,6 +26,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class MusicBrowserActivity extends Activity
     implements MusicUtils.Defs {
 

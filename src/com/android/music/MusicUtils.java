@@ -69,6 +69,8 @@ import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Locale;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class MusicUtils {
 
     private static final String TAG = "MusicUtils";

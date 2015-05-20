@@ -57,6 +57,8 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import java.text.Collator;
 import java.util.ArrayList;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class PlaylistBrowserActivity extends ListActivity
     implements View.OnCreateContextMenuListener, MusicUtils.Defs
 {

@@ -15,7 +15,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.android.music">
+        package="com.nao20010128nao.MusicAppAnother">
 
     <original-package android:name="com.android.music" />
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="9"/>

@@ -65,6 +65,8 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import java.text.Collator;
 
+import com.nao20010128nao.MusicAppAnother.R;
+
 public class AlbumBrowserActivity extends ListActivity
     implements View.OnCreateContextMenuListener, MusicUtils.Defs, ServiceConnection
 {
