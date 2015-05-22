@@ -19,5 +19,6 @@
 
     <color name="transparent">#00000000</color>
 
+	<color name="colSky">#bbbbbb</color>
 </resources>
 

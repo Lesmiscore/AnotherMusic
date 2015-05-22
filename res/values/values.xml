@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<bool name="isLollipop">false</bool>
+	<bool name="isNotLollipop">true</bool>
+	<bool name="truth">true</bool>
+	<bool name="lie">false</bool>
+</resources>
