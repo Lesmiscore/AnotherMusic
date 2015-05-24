@@ -70,6 +70,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import com.nao20010128nao.MusicAppAnother.R;
+import android.app.*;
 
 public class MusicUtils {
 
@@ -1143,22 +1144,21 @@ public class MusicUtils {
     
     static int sActiveTabIndex = -1;
     
-    static boolean updateButtonBar(Activity a, int highlight) {
-        final TabWidget ll = (TabWidget) a.findViewById(R.id.buttonbar);
+    public static boolean updateButtonBar(Activity a, int highlight) {
+		//MARK MODIFY
+        final TabWidget ll = (TabWidget) a.getWindow().getDecorView().findViewById(R.id.buttonbar);
         boolean withtabs = false;
         Intent intent = a.getIntent();
         if (intent != null) {
             withtabs = intent.getBooleanExtra("withtabs", false);
         }
-        
-        if (highlight == 0 || !withtabs) {
+		if (highlight == 0 || !withtabs) {
             ll.setVisibility(View.GONE);
             return withtabs;
         } else if (withtabs) {
             ll.setVisibility(View.VISIBLE);
         }
         for (int i = ll.getChildCount() - 1; i >= 0; i--) {
-            
             View v = ll.getChildAt(i);
             boolean isActive = (v.getId() == highlight);
             if (isActive) {
@@ -1167,28 +1167,27 @@ public class MusicUtils {
             }
             v.setTag(i);
             v.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+					public void onFocusChange(View v, boolean hasFocus) {
+						if (hasFocus) {
+							for (int i = 0; i < ll.getTabCount(); i++) {
+								if (ll.getChildTabViewAt(i) == v) {
+									ll.setCurrentTab(i);
+									processTabClick((Activity)ll.getContext(), v, ll.getChildAt(sActiveTabIndex).getId());
+									break;
+								}
+							}
+						}
+					}});
 
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (hasFocus) {
-                        for (int i = 0; i < ll.getTabCount(); i++) {
-                            if (ll.getChildTabViewAt(i) == v) {
-                                ll.setCurrentTab(i);
-                                processTabClick((Activity)ll.getContext(), v, ll.getChildAt(sActiveTabIndex).getId());
-                                break;
-                            }
-                        }
-                    }
-                }});
-            
             v.setOnClickListener(new View.OnClickListener() {
 
-                public void onClick(View v) {
-                    processTabClick((Activity)ll.getContext(), v, ll.getChildAt(sActiveTabIndex).getId());
-                }});
+					public void onClick(View v) {
+						processTabClick((Activity)ll.getContext(), v, ll.getChildAt(sActiveTabIndex).getId());
+					}});
         }
-        return withtabs;
+		return withtabs;
     }
-
+	
     static void processTabClick(Activity a, View v, int current) {
         int id = v.getId();
         if (id == current) {
@@ -1204,7 +1203,7 @@ public class MusicUtils {
         }
     }
     
-    static void activateTab(Activity a, int id) {
+    public static Window activateTab(Activity a, int id) {
         Intent intent = new Intent(Intent.ACTION_PICK);
         switch (id) {
             case R.id.artisttab:
@@ -1228,13 +1227,19 @@ public class MusicUtils {
                 a.startActivity(intent);
                 // fall through and return
             default:
-                return;
+                return null;
         }
         intent.putExtra("withtabs", true);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        a.startActivity(intent);
-        a.finish();
-        a.overridePendingTransition(0, 0);
+        if(a instanceof ActivityGroup){
+			ActivityGroup ag=(ActivityGroup)a;
+			return ag.getLocalActivityManager().startActivity("main",intent);
+		}else{
+			a.startActivity(intent);
+        	a.finish();
+        	a.overridePendingTransition(0, 0);
+			return null;
+		}
     }
     
     static void updateNowPlaying(Activity a) {
