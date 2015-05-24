@@ -277,6 +277,7 @@ public class ArtistAlbumBrowserActivity extends ExpandableListActivity
             mCurrentArtistId = mArtistCursor.getString(mArtistCursor.getColumnIndex(MediaStore.Audio.Artists._ID));
             intent.putExtra("artist", mCurrentArtistId);
         }
+		intent.setClass(this,TrackBrowserActivity.class);
         startActivity(intent);
         return true;
     }

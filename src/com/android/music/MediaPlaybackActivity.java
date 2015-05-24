@@ -398,6 +398,7 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                     new Intent(Intent.ACTION_EDIT)
                     .setDataAndType(Uri.EMPTY, "vnd.android.cursor.dir/track")
                     .putExtra("playlist", "nowplaying")
+				    .setClass(MediaPlaybackActivity.this,TrackBrowserActivity.class)
             );
         }
     };

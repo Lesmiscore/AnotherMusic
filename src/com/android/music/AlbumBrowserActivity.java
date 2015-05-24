@@ -410,6 +410,7 @@ public class AlbumBrowserActivity extends ListActivity
         intent.setDataAndType(Uri.EMPTY, "vnd.android.cursor.dir/track");
         intent.putExtra("album", Long.valueOf(id).toString());
         intent.putExtra("artist", mArtistId);
+		intent.setClass(this,TrackBrowserActivity.class);
         startActivity(intent);
     }
 
