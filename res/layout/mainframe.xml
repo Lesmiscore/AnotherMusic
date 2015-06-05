@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<cdl.CustomDrawerLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical">
-
-	<android.support.v4.widget.DrawerLayout
-		android:layout_height="match_parent"
-		android:layout_width="match_parent"
-		android:layout_weight="1.0">
-
-		<LinearLayout
-			android:layout_height="match_parent"
-			android:layout_width="match_parent"
-			android:id="@+id/mainFrameContent"/>
-		<merge
-			layout="@layout/mainframedrawer"/>
-	</android.support.v4.widget.DrawerLayout>
+	android:layout_width="500dp"
+	android:layout_height="500dp"
+	android:id="@+id/mainframedrawer"
+	android:visibility="visible">
 
 	<LinearLayout
-		android:id="@+id/nowplaying"
+		android:layout_height="match_parent"
 		android:layout_width="match_parent"
-		android:layout_height="64dip"
-		android:focusable="true"
-		android:visibility="gone"
-		android:background="@drawable/music_bottom_playback_bg"
-		android:orientation="vertical"
-		android:paddingTop="3dip"
-		android:paddingBottom="2dip">
+		android:orientation="vertical">
 
 		<LinearLayout
-			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:orientation="horizontal">
+			android:layout_width="match_parent"
+			android:id="@+id/mainFrameContent"
+			android:layout_weight="1.0"/>
+
+		<LinearLayout
+			android:id="@+id/nowplaying"
+			android:layout_width="match_parent"
+			android:layout_height="64dip"
+			android:focusable="true"
+			android:visibility="gone"
+			android:background="@drawable/music_bottom_playback_bg"
+			android:orientation="vertical"
+			android:paddingTop="3dip"
+			android:paddingBottom="2dip">
 
 			<LinearLayout
 				android:layout_width="0dip"
@@ -71,5 +65,8 @@
 
 	</LinearLayout>
 
-</LinearLayout>
+	<include
+		layout="@layout/mainframedrawer"/>
+
+</cdl.CustomDrawerLayout>
 

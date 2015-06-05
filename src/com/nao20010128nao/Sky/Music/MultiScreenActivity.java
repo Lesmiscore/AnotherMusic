@@ -9,10 +9,10 @@ import android.util.*;
 import android.content.*;
 import java.lang.reflect.*;
 import com.nao20010128nao.MusicAppAnother.*;
+import android.view.View.*;
 
 public class MultiScreenActivity extends ActivityGroup /*implements ActivityTools.ActivityChangeable*/{
-	//This activity must call from Lollipop
-	LocalActivityManager lam=getLocalActivityManager();
+	LocalActivityManager lam;
 	Window localWindow;ViewGroup prevDecor;
 	boolean foreverLoopProtection=false;
 	@Override
@@ -20,7 +20,11 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.buttonbar);
+		View layout=getLayoutInflater().inflate(R.layout.mainframe,null,false);
+		layout.setLayoutParams(new FrameLayout.LayoutParams(-1,-1));
+		layout.measure(MeasureSpec.EXACTLY,MeasureSpec.EXACTLY);
+		setContentView(layout);
+		lam=getLocalActivityManager();
 		int activeTab = Tools.getSettings("activetab",R.id.artisttab,this);
         if (activeTab != R.id.artisttab
 			&& activeTab != R.id.albumtab
@@ -28,7 +32,6 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
 			&& activeTab != R.id.playlisttab) {
             activeTab = R.id.artisttab;
         }
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		onActivityChangeRequest(activeTab);
 		//getWindow().setNavigationBarColor(0);
 	}

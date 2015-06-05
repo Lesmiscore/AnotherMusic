@@ -37,8 +37,8 @@
         />
         <activity android:name="com.android.music.MusicBrowserActivity"
             android:theme="@style/autoSelectDialog"
-            android:exported="true"
-        >
+            android:exported="false"
+			android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.MUSIC_PLAYER" />
@@ -297,5 +297,17 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
+		
+		<activity android:name="com.nao20010128nao.Sky.Music.MultiScreenActivity"
+            android:theme="@style/autoSelectFull"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MUSIC_PLAYER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_MUSIC" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
