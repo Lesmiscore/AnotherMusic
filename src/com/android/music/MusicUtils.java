@@ -1229,12 +1229,13 @@ public class MusicUtils {
             default:
                 return null;
         }
-        intent.putExtra("withtabs", true);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         if(a instanceof ActivityGroup){
+			intent.putExtra("withtabs", false);
 			ActivityGroup ag=(ActivityGroup)a;
 			return ag.getLocalActivityManager().startActivity("main",intent);
 		}else{
+			intent.putExtra("withtabs", true);
 			a.startActivity(intent);
         	a.finish();
         	a.overridePendingTransition(0, 0);

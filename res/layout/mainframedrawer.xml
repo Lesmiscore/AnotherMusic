@@ -7,7 +7,7 @@
 	android:gravity="start"
 	android:layout_gravity="start">
 
-	<LinearLayout
+	<TabWidget
 		android:id="@+id/buttonbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="64dip"/>
 
-	</LinearLayout>
+	</TabWidget>
 
 </LinearLayout>
 
