@@ -1082,10 +1082,10 @@ public class MediaPlaybackActivity extends Activity implements MusicUtils.Defs,
                 // of a "play this file" Intent, exit. Otherwise go to the Music
                 // app start screen.
                 if (getIntent().getData() == null) {
-                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    /*Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setClass(MediaPlaybackActivity.this, MusicBrowserActivity.class);
-                    startActivity(intent);
+                    startActivity(intent);*/
                 }
                 finish();
             }

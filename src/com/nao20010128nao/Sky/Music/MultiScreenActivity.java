@@ -76,7 +76,11 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
 	@Override
 	public void onActivityChangeRequest(int activeTab){
 		// TODO: Implement this method
-		localWindow=MusicUtils.activateTab((ActivityGroup)this, activeTab);
+		Window prevWindow=localWindow=MusicUtils.activateTab((ActivityGroup)this, activeTab);
+		if(localWindow==null){
+			localWindow=prevWindow;
+			return;
+		}
 		ViewGroup vg=(ViewGroup)findViewById(R.id.mainFrameContent);
 		removeFromParent(prevDecor);
 		vg.addView(prevDecor=(ViewGroup)localWindow.getDecorView());

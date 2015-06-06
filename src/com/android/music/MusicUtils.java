@@ -1234,7 +1234,7 @@ public class MusicUtils {
                 return null;
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        if(a instanceof ActivityGroup){
+        if((a instanceof ActivityGroup)&id!=R.id.nowplayingtab){
 			intent.putExtra("withtabs", false);
 			ActivityGroup ag=(ActivityGroup)a;
 			return ag.getLocalActivityManager().startActivity("main",intent);
