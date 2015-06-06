@@ -5,8 +5,7 @@ import android.content.*;
 import android.util.*;
 import android.support.v4.widget.*;
 
-public class CustomDrawerLayout extends DrawerLayout
- {
+public class CustomDrawerLayout extends DrawerLayout{
 
     public CustomDrawerLayout(Context context) {
         super(context);
