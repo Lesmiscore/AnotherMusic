@@ -71,6 +71,7 @@ import java.util.Locale;
 
 import com.nao20010128nao.MusicAppAnother.R;
 import android.app.*;
+import com.nao20010128nao.Sky.Music.*;
 
 public class MusicUtils {
 
@@ -1201,6 +1202,9 @@ public class MusicUtils {
             ll.setCurrentTab((Integer) v.getTag());
             setIntPref(a, "activetab", id);
         }
+		if(a instanceof MultiScreenActivity){
+			((MultiScreenActivity)a).onActivityChangeRequest(id);
+		}
     }
     
     public static Window activateTab(Activity a, int id) {
