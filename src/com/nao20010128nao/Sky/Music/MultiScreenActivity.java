@@ -15,14 +15,15 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
 	LocalActivityManager lam;
 	Window localWindow;ViewGroup prevDecor;
 	boolean foreverLoopProtection=false;
+	int activeTab;
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		View layout=getLayoutInflater().inflate(R.layout.mainframe,null,false);
-		layout.setLayoutParams(new FrameLayout.LayoutParams(-1,-1));
-		layout.measure(MeasureSpec.EXACTLY,MeasureSpec.EXACTLY);
+		//layout.setLayoutParams(new FrameLayout.LayoutParams(-1,-1));
+		//layout.measure(MeasureSpec.EXACTLY,MeasureSpec.EXACTLY);
 		setContentView(layout);
 		lam=getLocalActivityManager();
 		int activeTab = Tools.getSettings("activetab",R.id.artisttab,this);
@@ -33,6 +34,7 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
             activeTab = R.id.artisttab;
         }
 		onActivityChangeRequest(activeTab);
+		MusicUtils.updateButtonBar(this,activeTab);
 		//getWindow().setNavigationBarColor(0);
 	}
 	
@@ -81,17 +83,36 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
 			localWindow=prevWindow;
 			return;
 		}
+		this.activeTab=activeTab;
 		ViewGroup vg=(ViewGroup)findViewById(R.id.mainFrameContent);
 		removeFromParent(prevDecor);
 		vg.addView(prevDecor=(ViewGroup)localWindow.getDecorView());
+		prevDecor.setLayoutParams(new LinearLayout.LayoutParams(-1,-1));
 		if(localWindow.getContext()!=this){
 			Log.d("Debug","localWindow.getContext()!=this");
 			getIntent().putExtra("withtabs",true);
 			MusicUtils.updateButtonBar(this, activeTab);
 		}
+		getWindow().clearFlags(Window.FEATURE_CONTEXT_MENU);
 	}
 	public void removeFromParent(View v){
 		if(v!=null)
 			((ViewGroup)v.getParent()).removeView(v);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState)
+	{
+		// TODO: Implement this method
+		super.onSaveInstanceState(outState);
+		outState.putInt("tab",activeTab);
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState)
+	{
+		// TODO: Implement this method
+		super.onRestoreInstanceState(savedInstanceState);
+		onActivityChangeRequest(savedInstanceState.getInt("tab"));
 	}
 }

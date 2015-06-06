@@ -110,7 +110,9 @@ public class ArtistAlbumBrowserActivity extends ExpandableListActivity
         lv.setOnCreateContextMenuListener(this);
         lv.setTextFilterEnabled(true);
 
-        mAdapter = (ArtistAlbumListAdapter) getLastNonConfigurationInstance();
+		if(getLastNonConfigurationInstance() instanceof ArtistAlbumListAdapter){
+			mAdapter = (ArtistAlbumListAdapter) getLastNonConfigurationInstance();
+		}
         if (mAdapter == null) {
             //Log.i("@@@", "starting query");
             mAdapter = new ArtistAlbumListAdapter(
