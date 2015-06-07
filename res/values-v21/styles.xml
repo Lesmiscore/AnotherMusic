@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<style name="autoSelectFull" parent="@android:style/Theme.Material">
-		<item name="android:colorPrimary">@color/colGly</item>
+		<item name="android:colorPrimary">@color/drkGly</item>
         <item name="android:colorPrimaryDark">@color/colGly</item>
         <item name="android:colorAccent">@color/colGly</item>
 	</style>
 	<style name="autoSelectDialog" parent="@android:style/Theme.Material.Dialog">
-		<item name="android:colorPrimary">@color/colGly</item>
+		<item name="android:colorPrimary">@color/drkGly</item>
         <item name="android:colorPrimaryDark">@color/colGly</item>
         <item name="android:colorAccent">@color/colGly</item>
 	</style>
