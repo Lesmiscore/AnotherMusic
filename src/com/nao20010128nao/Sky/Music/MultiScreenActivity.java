@@ -21,10 +21,7 @@ public class MultiScreenActivity extends ActivityGroup /*implements ActivityTool
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
-		View layout=getLayoutInflater().inflate(R.layout.mainframe,null,false);
-		//layout.setLayoutParams(new FrameLayout.LayoutParams(-1,-1));
-		//layout.measure(MeasureSpec.EXACTLY,MeasureSpec.EXACTLY);
-		setContentView(layout);
+		setContentView(R.layout.mainframe);
 		lam=getLocalActivityManager();
 		int activeTab = Tools.getSettings("activetab",R.id.artisttab,this);
         if (activeTab != R.id.artisttab
